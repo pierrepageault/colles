@@ -1,0 +1,183 @@
+% Ce template génère la fiche de colle avec les élèves, les questions de cours, les exercices, les notes et les commentaires.
+% colle.tex
+
+\documentclass[11pt,a4paper]{article}
+
+% ============================================================
+% Packages
+% ============================================================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+
+\usepackage[
+top=1.8cm,
+bottom=1.8cm,
+left=1.5cm,
+right=1.5cm
+]{geometry}
+
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+
+% ============================================================
+% Couleurs
+% ============================================================
+
+\definecolor{CPGEblue}{RGB}{35,70,120}
+\definecolor{CPGElight}{RGB}{235,241,249}
+\definecolor{CPGEgray}{RGB}{100,100,100}
+
+% ============================================================
+% Mise en page
+% ============================================================
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+
+\setlist[itemize]{
+leftmargin=1.5em
+}
+
+\setlist[enumerate]{
+leftmargin=1.8em
+}
+
+\hypersetup{
+colorlinks=true,
+linkcolor=CPGEblue,
+urlcolor=CPGEblue
+}
+
+% ============================================================
+% Métadonnées
+% ============================================================
+
+$if(title)$
+\newcommand{\colletitle}{$title$}
+$else$
+\newcommand{\colletitle}{Colle de mathématiques}
+$endif$
+
+$if(classe)$
+\newcommand{\classe}{$classe$}
+$else$
+\newcommand{\classe}{MP}
+$endif$
+
+% Date du jour si aucune date n'est fournie.
+$if(date)$
+\newcommand{\colledate}{$date$}
+$else$
+\newcommand{\colledate}{\today}
+$endif$
+
+% ============================================================
+% En-tête / pied de page
+% ============================================================
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\lhead{\small\textsc{Colle de mathématiques}}
+\rhead{\small\textsc{\classe}}
+\cfoot{\small\thepage,/,\pageref{LastPage}}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ============================================================
+% Document
+% ============================================================
+
+\begin{document}
+
+% ============================================================
+% En-tête de la colle
+% ============================================================
+
+\begin{center}
+
+{\Large\bfseries\color{CPGEblue}\colletitle}
+
+
+\vspace{0.5em}
+
+{\small\textcolor{gray}{\colledate}}
+
+\end{center}
+
+\vspace{0.7em}
+
+% ============================================================
+% Élèves
+% ============================================================
+
+$for(eleves)$
+
+\noindent
+\colorbox{CPGElight}{
+\parbox{\dimexpr\textwidth-2\fboxsep\relax}{
+\textbf{\large $eleves.nom$}
+\hfill
+$if(eleves.absent)$
+\textcolor{CPGEgray}{\textbf{ABSENT}}
+$else$
+$if(eleves.note)$
+\textbf{\large $eleves.note$/20}
+$else$
+\textbf{\large --/20}
+$endif$
+$endif$
+}}
+
+$if(eleves.absent)$
+$else$
+\textbf{Question de cours:}
+$if(eleves.question_cours)$
+$eleves.question_cours$
+$else$
+\textcolor{CPGEgray}{Pas de question de cours.}
+$endif$
+
+\vspace{0.25em}
+
+$if(eleves.exercice)$
+\textbf{Exercice(s):}
+$eleves.exercice$
+$else$
+\textcolor{CPGEgray}{non renseigné}
+$endif$
+
+\vspace{0.25em}
+
+$if(eleves.commentaire)$
+\textbf{Commentaire:}
+$eleves.commentaire$
+$endif$
+$endif$
+
+\vspace{0.5em}
+\hrule
+\vspace{0.7em}
+
+$endfor$
+
+% ============================================================
+% Contenu éventuel de la fiche
+% ============================================================
+
+$body$
+
+
+\end{document}

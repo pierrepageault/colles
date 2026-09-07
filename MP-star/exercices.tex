@@ -1,0 +1,132 @@
+
+% Ce template sert uniquement à produire les PDF des programmes. Les exercices sont présentés en deux colonnes.
+% exercices.tex
+
+\documentclass[11pt,a4paper]{article}
+
+% ============================================================
+% Packages
+% ============================================================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern}
+
+\usepackage[
+top=1.5cm,
+bottom=1.5cm,
+left=1.5cm,
+right=1.5cm
+]{geometry}
+
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+% ============================================================
+% Couleurs
+% ============================================================
+
+\definecolor{CPGEblue}{RGB}{35,70,120}
+
+% ============================================================
+% Mise en page
+% ============================================================
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+
+\setlist[itemize]{
+leftmargin=1.4em,
+nosep
+}
+
+\setlist[enumerate]{
+leftmargin=1.7em,
+nosep
+}
+
+\hypersetup{
+colorlinks=true,
+linkcolor=CPGEblue,
+urlcolor=CPGEblue
+}
+
+% ============================================================
+% Style des titres
+% ============================================================
+
+\titleformat{\section}
+{\large\bfseries\color{CPGEblue}}
+{}
+{0pt}
+{}
+
+\titleformat{\subsection}
+{\normalsize\bfseries\color{CPGEblue}}
+{}
+{0pt}
+{}
+
+\titlespacing*{\section}
+{0pt}{0.5em}{0.2em}
+
+\titlespacing*{\subsection}
+{0pt}{0.4em}{0.1em}
+
+% ============================================================
+% Métadonnées
+% ============================================================
+
+$if(classe)$
+\newcommand{\classe}{$classe$}
+$else$
+\newcommand{\classe}{Classe indéterminée}
+$endif$
+
+$if(titre)$
+\newcommand{\titre}{$titre$}
+$else$
+\newcommand{\titre}{Titre indéterminé}
+$endif$
+
+% ============================================================
+% En-tête / pied de page
+% ============================================================
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\lhead{\small\textsc{Exercices}}
+\rhead{\small\textsc{\classe}}
+\cfoot{\small\thepage,/,\pageref{LastPage}}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ============================================================
+% Document
+% ============================================================
+
+\begin{document}
+
+
+\begin{center}
+
+{\Large\bfseries\color{CPGEblue}\titre}
+
+\end{center}
+
+\vspace{0.5em}
+
+$body$
+
+
+\end{document}
