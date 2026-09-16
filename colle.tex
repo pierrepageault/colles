@@ -1,5 +1,5 @@
-% Ce template génère la fiche de colle avec les élèves, les questions de cours, les exercices, les notes et les commentaires.
-% colle.tex
+% Ce template génère la fiche de colle avec les élèves, les questions de cours,
+% les exercices, les notes et les commentaires.
 
 \documentclass[11pt,a4paper]{article}
 
@@ -73,7 +73,7 @@ $endif$
 $if(classe)$
 \newcommand{\classe}{$classe$}
 $else$
-\newcommand{\classe}{MP}
+\newcommand{\classe}{Classe non spécifiée}
 $endif$
 
 % Date du jour si aucune date n'est fournie.
@@ -147,7 +147,7 @@ $else$
 $if(eleves.question_cours)$
 $eleves.question_cours$
 $else$
-\textcolor{CPGEgray}{Pas de question de cours.}
+\textcolor{CPGEgray}{pas de question de cours.}
 $endif$
 
 \vspace{0.25em}
@@ -156,7 +156,7 @@ $if(eleves.exercice)$
 \textbf{Exercice(s):}
 $eleves.exercice$
 $else$
-\textcolor{CPGEgray}{non renseigné}
+\textbf{Exercice(s):}\ \textcolor{CPGEgray}{pas d'exercice abordé}
 $endif$
 
 \vspace{0.25em}
