@@ -8,7 +8,7 @@ classe: 'TSI2'
 Montrer que l'intégrale 
 
 $$
-I = \int_0^{\frac{\pi}{2}}\ln (cos x)dx
+I = \int_0^{\frac{\pi}{2}}\ln (\sin x)dx
 $$ 
 
 converge et calculer sa valeur à l'aide du changement de variable $u =
@@ -29,16 +29,16 @@ Soit $a>0$.
 
 ### 02-4 -- Un changement de variable
 
-On admet que l'intégrale $\displaystyle I= \int_{0}^{+\infty}\frac{ln t}{1+t^{2}}$ converge et vaut $0$. Montrer que 
+On admet que l'intégrale $\displaystyle I= \int_{0}^{+\infty}\frac{\ln t}{1+t^{2}}$ converge et vaut $0$. Montrer que 
 pour tout $a>0$, 
 
 $$
-    \int_0^{+\infty}\frac{ln t}{t^{2}+a^{2}} = \frac{\pi ln a}{2a}.
+    \int_0^{+\infty}\frac{\ln t}{t^{2}+a^{2}} = \frac{\pi \ln a}{2a}.
 $$
 
 ### 02-5 -- Nature et valeur d'une intégrale (2) 
 
-Montrer que l'intégrale $\displaystyle \int_{1}^{+\infty}\frac{ln t}{t \sqrt{t}}dt$ converge et calculer sa valeur à l'aide d'une intégration par parties.
+Montrer que l'intégrale $\displaystyle \int_{1}^{+\infty}\frac{\ln t}{t \sqrt{t}}dt$ converge et calculer sa valeur à l'aide d'une intégration par parties.
 
 ### 02-6 -- Un calcul d'intégrale
 
@@ -57,7 +57,7 @@ $$
 Pour tout $n \in \mathbb{N}^*$, on pose 
 
 $$
-    J_n = \int_{0}^{+\infty}\frac{dt}{(1+t^{2})^{2}}.
+    J_n = \int_{0}^{+\infty}\frac{dt}{(1+t^{2})^{2n}}.
 $$
 
 1. Montrer que $J_{n}$ converge et calculer $J_{1}$.
